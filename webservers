@@ -1,0 +1,11 @@
+---
+iface: '{{ ansible_default_ipv4.interface }}'
+
+apache_test_message: This is a test - 
+apache_max_keep_alive_request: 115
+apache_docroot: /var/www/html
+apache_config: /etc/httpd/conf/httpd.conf
+sites_available: /etc/httpd/conf/sites-available
+sites_enabled: /etc/httpd/conf/sites-enabled
+
+lameapp_version: 1.1

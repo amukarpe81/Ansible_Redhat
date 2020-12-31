@@ -1,0 +1,11 @@
+---
+- name: install python bindings for selinux
+  yum: name={{item}} state=present
+  with_items:
+  - policycoreutils-python-utils
+
+- name: test to see if SeLinux is running
+  command: getenforce
+  register: sestatus
+  changed_when: false
+

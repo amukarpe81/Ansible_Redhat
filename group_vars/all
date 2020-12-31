@@ -1,0 +1,4 @@
+---
+
+httpd_port: 80
+ntpserver: 0.in.pool.ntp.org

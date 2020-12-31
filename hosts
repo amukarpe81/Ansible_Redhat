@@ -1,0 +1,8 @@
+[webservers]
+172.31.71.254
+
+[dbservers]
+172.31.78.26
+
+[lbservers]
+172.31.18.161

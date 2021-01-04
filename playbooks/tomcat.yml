@@ -2,12 +2,13 @@
 - hosts: webservers
   become: yes
   tasks:
-    - name: install tomcat
-      yum: name=tomcat state=present
+          #    - name: install tomcat
+      #      get_url: url="https://downloads.apache.org/tomcat/tomcat-9/v9.0.35/bin/apache-tomcat-9.0.35.tar.gz" dest=/tmp
+      #      yum: name=tomcat state=present
     - name: Start tomcat service
       service: name=tomcat state=started
     - name: Deploy war
-      get_url: url="https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war" dest=usr/share/tomcat/webapps
+      get_url: url="https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war" dest=/usr/share/tomcat/webapps
       notify: "Restart Tomcat"
   handlers:    
     - name: Restarte tomcat service

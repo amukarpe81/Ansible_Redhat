@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: install tomcat
+      yum: name=tomcat state=present
+    - name: Start tomcat service
+      service: name=tomcat state=started
+    - name: Deploy war
+      get_url: url="https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war" dest=usr/share/tomcat/webapps
+      notify: "Restart Tomcat"
+  handlers:    
+    - name: Restarte tomcat service
+      service: name=tomcat state=restarted
+      listen: "Restart Tomcat"
